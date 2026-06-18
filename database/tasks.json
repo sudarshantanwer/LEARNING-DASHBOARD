@@ -1,0 +1,50 @@
+[
+  {
+    "id": "task-seed-1",
+    "title": "Complete React Query fundamentals demo",
+    "description": "Work through official docs and build a small notes app.",
+    "category": "Learning",
+    "priority": "HIGH",
+    "status": "IN_PROGRESS",
+    "ownerId": "user-1",
+    "dueDate": "2026-06-25T00:00:00.000Z",
+    "createdAt": "2026-06-10T12:00:00.000Z",
+    "updatedAt": "2026-06-18T13:22:14.781Z"
+  },
+  {
+    "id": "task-seed-2",
+    "title": "Ship dashboard analytics cards",
+    "description": "Wire dashboard to live API counts.",
+    "category": "Project",
+    "priority": "MEDIUM",
+    "status": "TODO",
+    "ownerId": "user-3",
+    "dueDate": "2026-06-01T00:00:00.000Z",
+    "createdAt": "2026-06-05T10:00:00.000Z",
+    "updatedAt": "2026-06-05T10:00:00.000Z"
+  },
+  {
+    "id": "task-seed-3",
+    "title": "Accessibility pass on task forms",
+    "description": "Labels, focus order, and error announcements.",
+    "category": "Quality",
+    "priority": "LOW",
+    "status": "COMPLETED",
+    "ownerId": "user-2",
+    "dueDate": "2026-06-20T00:00:00.000Z",
+    "createdAt": "2026-06-01T08:00:00.000Z",
+    "updatedAt": "2026-06-15T16:00:00.000Z"
+  },
+  {
+    "id": "task-seed-4",
+    "title": "API contract review",
+    "description": "Align frontend types with Zod schemas.",
+    "category": "Project",
+    "priority": "HIGH",
+    "status": "TODO",
+    "ownerId": "user-5",
+    "dueDate": "2026-06-30T00:00:00.000Z",
+    "createdAt": "2026-06-08T14:00:00.000Z",
+    "updatedAt": "2026-06-08T14:00:00.000Z"
+  }
+]
