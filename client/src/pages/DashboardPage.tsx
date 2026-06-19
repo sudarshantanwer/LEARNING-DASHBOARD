@@ -6,8 +6,10 @@ import { ErrorState } from "../components/ErrorState";
 import { LoadingState } from "../components/LoadingState";
 import { PageHeader } from "../components/PageHeader";
 import { TaskCard } from "../components/TaskCard";
+import { IconArrowRight, IconDashboard, IconPlus } from "../components/icons";
 import { useDashboard, useTasks } from "../hooks/useTasks";
 import { useUsers } from "../hooks/useUsers";
+import type { User } from "../types";
 
 export function DashboardPage() {
   const dash = useDashboard();
@@ -33,11 +35,13 @@ export function DashboardPage() {
       <PageHeader
         title="Dashboard"
         subtitle="Track learning goals and project tasks with live analytics from your JSON-backed workspace."
+        icon={<IconDashboard className="h-6 w-6" strokeWidth={2} />}
         actions={
           <Link
             to="/tasks/new"
-            className="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
+            <IconPlus className="h-4 w-4 shrink-0" strokeWidth={2.25} aria-hidden />
             Create task
           </Link>
         }
@@ -47,9 +51,18 @@ export function DashboardPage() {
 
       <section className="space-y-4">
         <div className="flex items-end justify-between gap-3">
-          <h2 className="text-lg font-semibold text-slate-900">Recent tasks</h2>
-          <Link to="/tasks" className="text-sm font-semibold text-indigo-700 hover:text-indigo-800">
+          <h2 className="flex items-center gap-2 text-lg font-semibold text-slate-900">
+            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-100 text-slate-600 ring-1 ring-slate-200/80">
+              <IconDashboard className="h-4 w-4" aria-hidden />
+            </span>
+            Recent tasks
+          </h2>
+          <Link
+            to="/tasks"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-700 hover:text-indigo-800"
+          >
             View all
+            <IconArrowRight className="h-4 w-4 shrink-0" aria-hidden />
           </Link>
         </div>
 
@@ -62,8 +75,9 @@ export function DashboardPage() {
             action={
               <Link
                 to="/tasks/new"
-                className="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700"
               >
+                <IconPlus className="h-4 w-4 shrink-0" strokeWidth={2.25} aria-hidden />
                 Create task
               </Link>
             }

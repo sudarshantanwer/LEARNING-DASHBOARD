@@ -5,6 +5,7 @@ import { LoadingState } from "../components/LoadingState";
 import { datetimeLocalToIso } from "../utils/datetime";
 import { PageHeader } from "../components/PageHeader";
 import { TaskForm } from "../components/TaskForm";
+import { IconPencil } from "../components/icons";
 import { useTask, useUpdateTask } from "../hooks/useTasks";
 import { useUsers } from "../hooks/useUsers";
 
@@ -37,7 +38,7 @@ export function EditTaskPage() {
 
   return (
     <div className="space-y-8">
-      <PageHeader title="Edit task" subtitle={`Editing: ${t.title}`} />
+      <PageHeader title="Edit task" subtitle={`Editing: ${t.title}`} icon={<IconPencil className="h-6 w-6" strokeWidth={2} />} />
 
       <TaskForm
         mode="edit"

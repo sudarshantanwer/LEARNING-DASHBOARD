@@ -1,17 +1,7 @@
 import { Link } from "react-router-dom";
-import type { ProjectTask, TaskPriority, TaskStatus, User } from "../types";
-
-function priorityBadge(p: TaskPriority) {
-  if (p === "HIGH") return "bg-rose-50 text-rose-800 ring-rose-100";
-  if (p === "MEDIUM") return "bg-amber-50 text-amber-900 ring-amber-100";
-  return "bg-slate-50 text-slate-800 ring-slate-100";
-}
-
-function statusBadge(s: TaskStatus) {
-  if (s === "COMPLETED") return "bg-emerald-50 text-emerald-900 ring-emerald-100";
-  if (s === "IN_PROGRESS") return "bg-indigo-50 text-indigo-900 ring-indigo-100";
-  return "bg-slate-50 text-slate-800 ring-slate-100";
-}
+import type { ProjectTask, User } from "../types";
+import { IconArrowRight } from "./icons";
+import { TaskPriorityBadge, TaskStatusBadge } from "./TaskBadges";
 
 export function TaskTable({
   tasks,
@@ -55,23 +45,20 @@ export function TaskTable({
                   </Link>
                 </td>
                 <td className="px-4 py-3">
-                  <span className={`inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ring-1 ring-inset ${priorityBadge(t.priority)}`}>
-                    {t.priority}
-                  </span>
+                  <TaskPriorityBadge priority={t.priority} />
                 </td>
                 <td className="px-4 py-3">
-                  <span className={`inline-flex rounded-full px-2.5 py-1 text-xs font-semibold ring-1 ring-inset ${statusBadge(t.status)}`}>
-                    {t.status.replace("_", " ")}
-                  </span>
+                  <TaskStatusBadge status={t.status} />
                 </td>
                 <td className="px-4 py-3 text-slate-700">{usersById[t.ownerId]?.name ?? t.ownerId}</td>
                 <td className="px-4 py-3 text-slate-700 tabular-nums">{new Date(t.dueDate).toLocaleDateString()}</td>
                 <td className="px-4 py-3 text-right">
                   <Link
                     to={`/tasks/${t.id}`}
-                    className="inline-flex rounded-lg px-3 py-1.5 text-sm font-semibold text-indigo-700 hover:bg-indigo-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                    className="inline-flex items-center justify-center gap-1 rounded-lg px-3 py-1.5 text-sm font-semibold text-indigo-700 hover:bg-indigo-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
                   >
                     View
+                    <IconArrowRight className="h-3.5 w-3.5 shrink-0 opacity-80" aria-hidden />
                   </Link>
                 </td>
               </tr>

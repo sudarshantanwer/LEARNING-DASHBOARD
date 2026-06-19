@@ -1,5 +1,6 @@
 import type { FormEvent } from "react";
 import type { ProjectTask, TaskPriority, TaskStatus, User } from "../types";
+import { formatTaskStatus } from "../utils/taskLabels";
 import { toDatetimeLocalValue } from "../utils/datetime";
 
 export type TaskFormMode = "create" | "edit";
@@ -102,9 +103,9 @@ export function TaskForm({
             defaultValue={defaultValues?.priority ?? "MEDIUM"}
             className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200"
           >
-            <option value="LOW">LOW</option>
-            <option value="MEDIUM">MEDIUM</option>
-            <option value="HIGH">HIGH</option>
+            <option value="LOW">Low</option>
+            <option value="MEDIUM">Medium</option>
+            <option value="HIGH">High</option>
           </select>
         </div>
 
@@ -118,9 +119,9 @@ export function TaskForm({
             defaultValue={defaultValues?.status ?? "TODO"}
             className="mt-1 w-full rounded-xl border border-slate-200 px-3 py-2 text-sm shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200"
           >
-            <option value="TODO">TODO</option>
-            <option value="IN_PROGRESS">IN_PROGRESS</option>
-            <option value="COMPLETED">COMPLETED</option>
+            <option value="TODO">{formatTaskStatus("TODO")}</option>
+            <option value="IN_PROGRESS">{formatTaskStatus("IN_PROGRESS")}</option>
+            <option value="COMPLETED">{formatTaskStatus("COMPLETED")}</option>
           </select>
         </div>
 

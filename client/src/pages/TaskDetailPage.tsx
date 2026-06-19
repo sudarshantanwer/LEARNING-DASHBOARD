@@ -5,6 +5,8 @@ import { ErrorState } from "../components/ErrorState";
 import { LoadingState } from "../components/LoadingState";
 import { PageHeader } from "../components/PageHeader";
 import { SuccessToast } from "../components/SuccessToast";
+import { IconCheck, IconLoader, IconPencil } from "../components/icons";
+import { TaskPriorityBadge, TaskStatusBadge } from "../components/TaskBadges";
 import { usePatchTaskStatus, useTask } from "../hooks/useTasks";
 import { useUsers } from "../hooks/useUsers";
 
@@ -47,22 +49,25 @@ export function TaskDetailPage() {
               type="button"
               onClick={() => void setStatus("IN_PROGRESS")}
               disabled={patch.isPending}
-              className="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-900 shadow-sm hover:bg-slate-50 disabled:opacity-60"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-900 shadow-sm hover:bg-slate-50 disabled:opacity-60"
             >
+              <IconLoader className="h-4 w-4 shrink-0 text-sky-600" aria-hidden />
               Mark in progress
             </button>
             <button
               type="button"
               onClick={() => void setStatus("COMPLETED")}
               disabled={patch.isPending}
-              className="rounded-xl bg-emerald-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-emerald-700 disabled:opacity-60"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-emerald-700 disabled:opacity-60"
             >
+              <IconCheck className="h-4 w-4 shrink-0" strokeWidth={2.25} aria-hidden />
               Mark completed
             </button>
             <Link
               to={`/tasks/${t.id}/edit`}
-              className="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700"
             >
+              <IconPencil className="h-4 w-4 shrink-0" aria-hidden />
               Edit
             </Link>
           </>
@@ -79,11 +84,15 @@ export function TaskDetailPage() {
           <dl className="space-y-3 text-sm">
             <div className="flex justify-between gap-3">
               <dt className="text-slate-500">Status</dt>
-              <dd className="font-semibold text-slate-900">{t.status.replace("_", " ")}</dd>
+              <dd className="text-right">
+                <TaskStatusBadge status={t.status} />
+              </dd>
             </div>
             <div className="flex justify-between gap-3">
               <dt className="text-slate-500">Priority</dt>
-              <dd className="font-semibold text-slate-900">{t.priority}</dd>
+              <dd className="text-right">
+                <TaskPriorityBadge priority={t.priority} />
+              </dd>
             </div>
             <div className="flex justify-between gap-3">
               <dt className="text-slate-500">Due</dt>

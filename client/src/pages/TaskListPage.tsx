@@ -7,6 +7,7 @@ import { PageHeader } from "../components/PageHeader";
 import { SearchBar } from "../components/SearchBar";
 import { StatusFilter } from "../components/StatusFilter";
 import { TaskTable } from "../components/TaskTable";
+import { IconPlus, IconTasks } from "../components/icons";
 import { useTasks } from "../hooks/useTasks";
 import { useUsers } from "../hooks/useUsers";
 import type { TaskStatus, User } from "../types";
@@ -42,11 +43,13 @@ export function TaskListPage() {
       <PageHeader
         title="Tasks"
         subtitle="Search, filter, and drill into details. Data persists in JSON files on the server."
+        icon={<IconTasks className="h-6 w-6" strokeWidth={2} />}
         actions={
           <Link
             to="/tasks/new"
-            className="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
+            <IconPlus className="h-4 w-4 shrink-0" strokeWidth={2.25} aria-hidden />
             New task
           </Link>
         }
@@ -64,8 +67,9 @@ export function TaskListPage() {
           action={
             <Link
               to="/tasks/new"
-              className="inline-flex items-center justify-center rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700"
             >
+              <IconPlus className="h-4 w-4 shrink-0" strokeWidth={2.25} aria-hidden />
               Create task
             </Link>
           }

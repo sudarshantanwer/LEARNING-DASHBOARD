@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { datetimeLocalToIso } from "../utils/datetime";
 import { PageHeader } from "../components/PageHeader";
 import { TaskForm } from "../components/TaskForm";
+import { IconPlus } from "../components/icons";
 import { useCreateTask } from "../hooks/useTasks";
 import { useUsers } from "../hooks/useUsers";
 import { LoadingState } from "../components/LoadingState";
@@ -21,7 +22,11 @@ export function CreateTaskPage() {
 
   return (
     <div className="space-y-8">
-      <PageHeader title="Create task" subtitle="Required fields: title, priority, owner, and due date." />
+      <PageHeader
+        title="Create task"
+        subtitle="Required fields: title, priority, owner, and due date."
+        icon={<IconPlus className="h-6 w-6" strokeWidth={2.25} />}
+      />
 
       <TaskForm
         mode="create"

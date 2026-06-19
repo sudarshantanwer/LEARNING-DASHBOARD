@@ -1,4 +1,5 @@
 import type { TaskStatus } from "../types";
+import { IconFilter } from "./icons";
 
 const options: { value: TaskStatus | "ALL"; label: string }[] = [
   { value: "ALL", label: "All statuses" },
@@ -16,7 +17,10 @@ export function StatusFilter({
 }) {
   return (
     <label className="block w-full max-w-xs">
-      <span className="mb-1 block text-xs font-medium text-slate-600">Status</span>
+      <span className="mb-1 flex items-center gap-1.5 text-xs font-medium text-slate-600">
+        <IconFilter className="h-3.5 w-3.5 text-slate-500" aria-hidden />
+        Status
+      </span>
       <select
         value={value}
         onChange={(e) => onChange(e.target.value as TaskStatus | "ALL")}
