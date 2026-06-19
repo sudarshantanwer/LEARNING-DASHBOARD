@@ -10,7 +10,8 @@
     "build": "npm run build -w server && npm run build -w client",
     "test": "npm run test -w server && npm run test -w client",
     "test:coverage": "npm run test:coverage -w server && npm run test:coverage -w client",
-    "lint": "npm run lint -w server && npm run lint -w client"
+    "lint": "npm run lint -w server && npm run lint -w client",
+    "pdf:walkthrough": "python3 scripts/generate-walkthrough-pdf.py"
   },
   "devDependencies": {
     "concurrently": "^9.1.2"

@@ -1,6 +1,7 @@
 node_modules
 dist
 coverage
+docs/assignment/.walkthrough-print.html
 .DS_Store
 *.log
 .env

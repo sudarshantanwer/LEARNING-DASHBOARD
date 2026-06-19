@@ -111,3 +111,5 @@ PORT=4020 API_PROXY_PORT=4020 npm run dev
 ## Documentation
 
 See the assessment documents in the repo root (`requirements-analysis.md`, `test-strategy.md`, etc.).
+
+**Junior / AI coding lab:** step-by-step assignment — [`docs/assignment/AI_CODING_LAB.md`](docs/assignment/AI_CODING_LAB.md). **Project UI walkthrough** (Markdown + PDF with all mockups): [`docs/assignment/PROJECT_UI_WALKTHROUGH.md`](docs/assignment/PROJECT_UI_WALKTHROUGH.md) · [`docs/assignment/PROJECT_UI_WALKTHROUGH.pdf`](docs/assignment/PROJECT_UI_WALKTHROUGH.pdf). **UI mockup gallery:** [`docs/assignment/UI_MOCKUPS.md`](docs/assignment/UI_MOCKUPS.md).
